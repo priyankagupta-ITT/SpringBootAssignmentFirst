@@ -24,4 +24,14 @@ Depedency
 version:
    1. spring boot version is 2.7.11
    2. JDK version is 17
+   3. MySql version is 8
+
+MySql Database detail:
+   
+    Port : 9090
+    username : root
+    Database name : emp_dept_detail
+    table : emp,dept
+
+Note: To run this application, Mysql Database should be connected and database 'emp_dept_detail' should be created.
  
