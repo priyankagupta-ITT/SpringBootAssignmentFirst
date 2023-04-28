@@ -55,7 +55,8 @@ public class SecurityConfig {
                 disable().
                 authorizeRequests()
                 .antMatchers("/auth/login").permitAll()
-                .antMatchers(HttpMethod.POST,"/user").permitAll()
+                //.antMatchers(HttpMethod.POST,"/user").permitAll()
+                .antMatchers("/user").permitAll()
                 .antMatchers(HttpMethod.DELETE,"/user/**").hasRole("ADMIN")
                 .antMatchers("/emp").hasAnyRole("ADMIN","NORMAL")
                 .antMatchers("/dept").hasRole("ADMIN")
