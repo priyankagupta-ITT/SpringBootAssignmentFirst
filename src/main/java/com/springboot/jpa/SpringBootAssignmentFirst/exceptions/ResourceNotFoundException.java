@@ -1,7 +1,7 @@
 package com.springboot.jpa.SpringBootAssignmentFirst.exceptions;
 
 import lombok.Builder;
-import org.springframework.http.HttpStatus;
+
 
 @Builder
 public class ResourceNotFoundException extends RuntimeException{
