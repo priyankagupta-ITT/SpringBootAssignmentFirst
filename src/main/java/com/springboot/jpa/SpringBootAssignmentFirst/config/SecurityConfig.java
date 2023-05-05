@@ -31,6 +31,15 @@ public class SecurityConfig {
     @Autowired
     private JwtAuthenticationFilter jwtAuthenticationFilter;
 
+    private final String[] PUBLIC_URLS={
+         "/swagger-ui/**",
+            "/webjars/**",
+            "/swagger-resources/**",
+            "/v3/api-docs",
+            "/v2/api-docs"
+    };
+
+
 
     @Bean
     public DaoAuthenticationProvider authenticationProvider(){
@@ -46,6 +55,7 @@ public class SecurityConfig {
 
     }
 
+
     @Bean
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
         http.
@@ -60,6 +70,7 @@ public class SecurityConfig {
                 .antMatchers(HttpMethod.DELETE,"/user/**").hasRole("ADMIN")
                 .antMatchers("/emp").hasAnyRole("ADMIN","NORMAL")
                 .antMatchers("/dept").hasRole("ADMIN")
+                .antMatchers(PUBLIC_URLS).permitAll()
                 .anyRequest().
                 authenticated()
                 .and().
